@@ -1,3 +1,34 @@
+// Theme: follows system preference unless user overrides via toggle
+(function initTheme() {
+  const saved = localStorage.getItem("bilhete-unico-theme");
+  const toggle = document.getElementById("theme-toggle");
+
+  function apply(theme) {
+    if (theme) {
+      document.documentElement.setAttribute("data-theme", theme);
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+    const isDark =
+      theme === "dark" ||
+      (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches);
+    toggle.textContent = isDark ? "☀️" : "🌙";
+  }
+
+  apply(saved);
+
+  toggle.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    const systemDark = window.matchMedia(
+      "(prefers-color-scheme: dark)",
+    ).matches;
+    const effectiveDark = current === "dark" || (!current && systemDark);
+    const next = effectiveDark ? "light" : "dark";
+    localStorage.setItem("bilhete-unico-theme", next);
+    apply(next);
+  });
+})();
+
 const FARES = {
   bus: 5.3,
   rail: 5.4,
