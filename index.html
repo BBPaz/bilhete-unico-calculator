@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora Bilhete Único SP</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Calculadora Bilhete Único</h1>
+      <p class="subtitle">Compare o custo avulso com os passes temporais e descubra a melhor opção para o seu bolso.</p>
+    </header>
+
+    <section class="journeys-section">
+      <h2>Seus Trajetos</h2>
+      <p class="hint">Cada trajeto representa um grupo de viagens dentro de uma janela de 3 horas (integração).</p>
+
+      <div id="journeys-list"></div>
+
+      <button id="add-journey" class="btn btn-add">+ Adicionar Trajeto</button>
+    </section>
+
+    <section class="days-section">
+      <h2>Dias por Semana</h2>
+      <div id="days-selector" class="days-selector">
+        <button class="day-btn" data-day="1">1</button>
+        <button class="day-btn" data-day="2">2</button>
+        <button class="day-btn" data-day="3">3</button>
+        <button class="day-btn" data-day="4">4</button>
+        <button class="day-btn selected" data-day="5">5</button>
+        <button class="day-btn" data-day="6">6</button>
+        <button class="day-btn" data-day="7">7</button>
+      </div>
+      <label id="sunday-toggle" class="sunday-toggle">
+        <input type="checkbox" id="sunday-check">
+        <span>Inclui domingos? (ônibus gratuito aos domingos)</span>
+      </label>
+    </section>
+
+    <section class="weekend-section">
+      <h2>Uso nos Fins de Semana</h2>
+      <p class="hint">Viagens extras fora do trajeto de trabalho (passeios, compras, etc).</p>
+      <div id="weekend-selector" class="weekend-selector">
+        <button class="weekend-btn selected" data-level="never">Nunca</button>
+        <button class="weekend-btn" data-level="rarely">Raramente</button>
+        <button class="weekend-btn" data-level="sometimes">Às vezes</button>
+        <button class="weekend-btn" data-level="often">Frequentemente</button>
+        <button class="weekend-btn" data-level="custom">Outro</button>
+      </div>
+      <div id="weekend-custom" class="weekend-custom hidden">
+        <label for="weekend-custom-input">Viagens extras por mês:</label>
+        <input type="number" id="weekend-custom-input" min="0" max="100" value="0">
+      </div>
+      <p id="weekend-detail" class="hint"></p>
+    </section>
+
+    <section id="results-section" class="results-section hidden">
+      <h2>Comparação Mensal</h2>
+      <div id="results-cards" class="results-cards"></div>
+      <p class="footnote">
+        Valores de Janeiro/2026, consultados em <a href="https://www.sptrans.com.br/tarifas" target="_blank">sptrans.com.br/tarifas</a>
+        <br>Mensal = 31 dias corridos.
+        <br>Cálculo mensal usa média de 4,35 semanas/mês.
+      </p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
