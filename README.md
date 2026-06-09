@@ -1,5 +1,7 @@
 # Calculadora Bilhete Único SP
 
+[Acesse a calculadora](https://bbpaz.github.io/bilhete-unico-calculator/)
+
 Aplicativo simples, pra calcular diferenças de custo entre vários tipos de recarga (avulso, diário, semanal, mensal) do bilhete único comum em São Paulo.
 
 ## Por que fiz isso
@@ -10,7 +12,7 @@ Daí quis transformar isso numa ferramenta de uso simples, pra qualquer um que e
 
 ## Como usar
 
-1. Abra o `index.html` no navegador
+1. Abra o `index.html` no navegador ou [acesse a calculadora](https://bbpaz.github.io/bilhete-unico-calculator/)
 2. Adicione seus trajetos (cada trajeto = um grupo de viagens dentro de uma janela de 3h)
 3. Selecione quantos dias por semana você faz esse percurso
 4. Marque se inclui domingos (ônibus gratuito) e uso extra nos fins de semana
